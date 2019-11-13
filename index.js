@@ -15,7 +15,8 @@ function identity(value) {
 }
 module.exports.identity = identity;
 
-/** typeOf:  Designed to check the data type of a particular operand.
+/** typeOf:  Designed to check the data type of a particular operand and returnhs a string of the datatype.
+ * 
  *  @param {Any Datatype} Can take on any datatype; an array, string, object, undefined, number, 
  *  boolean, null, or function.
  * 
@@ -32,13 +33,15 @@ function typeOf(value){
 module.exports.typeOf = typeOf;
 
 /** 
- *  first: Designed to give the value of the first element(0 index) of an array.Returns an empty list
- *  if number is less than zero, and returns the entire array if number is greater than array.length.
+ *  first: Designed to give the value of the first element(0 index) of an array. Returns an empty list
+ *  if number is less than zero, and returns the entire array if number is greater than array.length. If a
+ *  number is given as a parameter, first will return that given amount of numbers. Ex: 
+ *  _first(array, 2) will output the 1st two numbers listed in the array. 
  * 
  * @param {Array} - Array is used to hold the array of elements.
  * @param {Number} Number gives the number of elements wanted.
  * 
- * @return {Element of Array] Returns the first element of the selected elements in an array. Returns the 
+ * @return {Element of Array} Returns the first element of the selected elements in an array. Returns the 
  * element along with all of its properties. When given a number (n) as a parameter, first will return the  
  * n elements starting at the beginning of the array. 
  */
@@ -65,7 +68,8 @@ module.exports.first = first;
 
 /**
  * last: Designed to give the value of the last element(array.length - 1)) of an array.Returns an empty list
- *  if number is less than zero, and returns the entire array if number is greater than array.length.
+ *  if number is less than zero, and returns the entire array if number is greater than array.length. If a number is given in the parameter, it returns
+ *  that many numbers starting at the back of the array. Ex. (._last(array, 2)) will out put the last two numbers in the array.
  * 
  * @param {Array} Array is used to hold the array of elements.
  * @param {Number}  Number gives the number of eleemnts wanted.
@@ -134,7 +138,7 @@ module.exports.contains = contains;
  * each: Designed to loop over a collection, Array or Object, and applies the 
  * action Function to each value in the collection.
  * 
- * @param {Collection(Array/Object) The collection over which to iterate
+ * @param {Collection(Array/Object)} The collection over which to iterate
  * @param {Function} action: The function to be applied to each value in the 
  * collection
  */
@@ -191,8 +195,7 @@ function filter(array, func) {
 module.exports.filter = filter;
 
 /** 
- * reject: 
- * Arguments: Designed to create a new array from elements that returned a fale value from call
+ * reject: Designed to create a new array from elements that returned a fale value from call
  * function. It is the logical inverse of _.filter.
  * 
  * @param {Array} Holds array used in callback function
@@ -215,7 +218,7 @@ module.exports.reject = reject;
  * elements and create an array of arrays where values or split based on whether condition is true or false.
  * 
  * @param {Array} Array holds array used in callback function
- * @param {Function) Callback function which accepts 3 arguments element, index, and array. Iterates through array 
+ * @param {Function} Callback function which accepts 3 arguments element, index, and array. Iterates through array 
  * to test whether a value is true of false. 
  * 
  * @return {Array} Returns an array that is made up of 2 sub arrays, with false values in one and 
@@ -287,7 +290,8 @@ module.exports.pluck = pluck;
  * every to run since it is used to test the elements in the collection. 
  * 
  * @return {Boolean} Returns true if every element returns a truthy value, If one element is falsy
- * returns false.
+ * returns false. If no function is given, every will return true if all values are truthy, and 
+ * false if not. 
  */
 
 function every(collection, func) {
@@ -317,7 +321,8 @@ module.exports.every = every;
  * order for some to run properly. 
  * 
  * @return {Boolean} Returns true if at least one element returns a truthy value. Returns false if 
- * collection is empty or none of the elements return a truthy value. 
+ * collection is empty or none of the elements return a truthy value. If no function is given, some will
+ * return true if at least one value is truthy, and false if not. 
  */
 function some(collection, func){
   var value = false;
