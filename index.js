@@ -117,7 +117,7 @@ module.exports.indexOf = indexOf;
  * we are looking for in the array.
  * 
  * @return {Boolean} Returns true if value is one of the elements of the array, false if not.
- *
+*/
 function contains(array, value){
     return array.includes(value) ?  true : false;
 
@@ -268,6 +268,7 @@ function pluck(array, prop) {
     });
 
 }
+module.exports.pluck = pluck;
  
 /** every: Designed to check collection using a function to see if each element of
  * collection passes a certain test. 
@@ -277,6 +278,7 @@ function pluck(array, prop) {
  * @return {Boolean} Returns true if every element returns a true value, If one element is false
  * returns false.
  */
+ module.exports.pluck = pluck;
 function every(collection, func) {
   var value = true;
   if(func === undefined){
